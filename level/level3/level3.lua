@@ -78,10 +78,19 @@ function level3:step(dt)
 end
 
 function level3:win_condition()
-  return color.red == box_r1.c and
-         color.yellow == box_r2.c and
-         color.blue == box_r3.c and
-         color.green == box_r4.c
+  local win = color.red == box_r1.c and
+              color.yellow == box_r2.c and
+              color.blue == box_r3.c and
+              color.green == box_r4.c
+
+  if win then
+    box1.c = color.white
+    box2.c = color.white
+    box3.c = color.white
+    box4.c = color.white
+  end
+
+  return win
 end
 
 function level3:draw()

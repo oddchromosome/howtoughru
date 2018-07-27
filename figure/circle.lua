@@ -17,7 +17,7 @@ function circle.new(x,y,r,c,outline)
     lg.setColor(self.c:to_params_norm())
     lg.circle("fill", self.x, self.y, self.r)
     if outline then
-      lg.setColor(color.orange:to_params_norm())
+      lg.setColor(color.grey:to_params_norm())
       lg.circle("line", self.x, self.y, self.r)
     end
     color.clear()

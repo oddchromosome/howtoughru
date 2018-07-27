@@ -22,7 +22,7 @@ color.yellow = color.new(220,220,0)
 color.red = color.new(220,30,30)
 color.white = color.new(255,255,255)
 color.purple = color.new(220,0,220)
-color.orange = color.new(110,110,110)
+color.grey = color.new(110,110,110)
 
 color.copy = function(c)
   return color.new(c.r,c.g,c.b,c.a)
