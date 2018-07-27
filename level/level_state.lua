@@ -1,0 +1,4 @@
+return {
+  WIN = {},
+  RESET = {}
+}

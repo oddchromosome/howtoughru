@@ -1,5 +1,6 @@
 game = require "game"
 level_manager = require "level/level_manager"
+level_state = require "level/level_state"
 
 function love.load()
   game:init()

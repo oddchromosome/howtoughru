@@ -1,27 +1,36 @@
-local level = require "level/level"
+local level1 = require "level/level1/level1"
+local level2 = require "level/level2/level2"
+local won = require "level/won"
 
 local level_manager = {}
 
 level_manager.levels = {}
-level_manager.current_level = nil
+level_manager.current_level = 0
 
 function level_manager:load()
-  level:load()
-  self.levels[1] = level
+  self.levels[1] = level1
+  self.levels[2] = level2
+  self.levels[3] = won
 
-  self:set_level(1)
-end
-
-function level_manager:set_level(n)
-  self.current_level = self.levels[n]
+  self.current_level = 1
 end
 
 function level_manager:update()
-  self.current_level:update()
+  if self:current():update() == level_state.WIN then
+    self:next()
+  end
 end
 
 function level_manager:draw()
-  self.current_level:draw()
+  self:current():draw()
+end
+
+function level_manager:current()
+  return self.levels[self.current_level]
+end
+
+function level_manager:next()
+  self.current_level = self.current_level + 1
 end
 
 return level_manager
