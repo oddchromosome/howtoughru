@@ -9,7 +9,7 @@ function love.load()
 end
 
 function love.update(dt)
-  level_manager:update()
+  level_manager:update(dt)
 end
 
 function love.draw()

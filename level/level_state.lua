@@ -1,4 +1,5 @@
 return {
+  PLAY = {},
   WIN = {},
   RESET = {}
 }
