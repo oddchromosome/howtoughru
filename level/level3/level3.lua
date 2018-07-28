@@ -2,19 +2,20 @@ move = require "action/move"
 intersect = require "action/intersect"
 local color = require "figure/color"
 local rect = require "figure/rectangle"
+local triangle = require "figure/triangle"
 
 local level3 = {}
 
 local key = love.keyboard.isDown
 
-local box1 = rect.new(0,0,64,48,color.green)
-local box2 = rect.new(64,0,64,48,color.blue)
-local box3 = rect.new(0,48,64,48,color.yellow)
-local box4 = rect.new(64,48,64,48,color.red)
-local box_r1 = rect.new(32,24,32,24,color.white)
-local box_r2 = rect.new(64,24,32,24,color.white)
-local box_r3 = rect.new(32,48,32,24,color.white)
-local box_r4 = rect.new(64,48,32,24,color.white)
+local tri1 = triangle.new(0,0,64,48,128,0,color.green)
+local tri2 = triangle.new(64,48,128,0,128,96,color.blue)
+local tri3 = triangle.new(0,96,64,48,128,96,color.yellow)
+local tri4 = triangle.new(0,0,64,48,0,96,color.red)
+local tri_r1 = triangle.new(64,48,96,24,32,24,color.white)
+local tri_r2 = triangle.new(96,24,64,48,96,72,color.white)
+local tri_r3 = triangle.new(64,48,96,72,32,72,color.white)
+local tri_r4 = triangle.new(32,72,64,48,32,24,color.white)
 
 local colors = {
   color.white,
@@ -51,57 +52,57 @@ function level3:step(dt)
     if du > limit then
       du = 0
       u = inc_color_u(u)
-      box_r1.c = colors[u]
+      tri_r1.c = colors[u]
     end
   end
   if key("right") then
     if dr > limit then
       dr = 0
       r = inc_color_r(r)
-      box_r2.c = colors[r]
+      tri_r2.c = colors[r]
     end
   end
   if key("down") then
     if dd > limit then
       dd = 0
       d = inc_color_d(d)
-      box_r3.c = colors[d]
+      tri_r3.c = colors[d]
     end
   end
   if key("left") then
     if dl > limit then
       dl = 0
       l = inc_color_l(l)
-      box_r4.c = colors[l]
+      tri_r4.c = colors[l]
     end
   end
 end
 
 function level3:win_condition()
-  local win = color.red == box_r1.c and
-              color.yellow == box_r2.c and
-              color.blue == box_r3.c and
-              color.green == box_r4.c
+  local win = color.yellow == tri_r1.c and
+              color.red == tri_r2.c and
+              color.green == tri_r3.c and
+              color.blue == tri_r4.c
 
   if win then
-    box1.c = color.white
-    box2.c = color.white
-    box3.c = color.white
-    box4.c = color.white
+    tri1.c = color.white
+    tri2.c = color.white
+    tri3.c = color.white
+    tri4.c = color.white
   end
 
   return win
 end
 
 function level3:draw()
-  box1:draw()
-  box2:draw()
-  box3:draw()
-  box4:draw()
-  box_r1:draw()
-  box_r2:draw()
-  box_r3:draw()
-  box_r4:draw()
+  tri1:draw()
+  tri2:draw()
+  tri3:draw()
+  tri4:draw()
+  tri_r1:draw()
+  tri_r2:draw()
+  tri_r3:draw()
+  tri_r4:draw()
 end
 
 return level3

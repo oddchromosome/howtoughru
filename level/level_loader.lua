@@ -19,11 +19,11 @@ local draw = function(self)
   self.level_n:draw()
 end
 
-function level_loader:new(level_n)
+function level_loader:new(level_n,time_to_pass)
   local inst = {}
   inst.state = level_state.PLAY
   inst.time_passed = 0
-  inst.time_to_pass = 0.35
+  inst.time_to_pass = time_to_pass or 0.35
   inst.level_n = level_n
 
   inst.update = update

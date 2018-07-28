@@ -4,6 +4,7 @@ local floor = math.floor
 -- turn off filtering!
 -- order matters!
 lg.setDefaultFilter("nearest", "nearest", 1)
+lg.setLineWidth(0.3)
 
 local Game = {board = {}}
 

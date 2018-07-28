@@ -1,0 +1,16 @@
+move = require "action/move"
+local color = require "figure/color"
+
+local level4 = {}
+
+function level4:step(dt)
+end
+
+function level4:win_condition()
+  return false
+end
+
+function level4:draw()
+end
+
+return level4
