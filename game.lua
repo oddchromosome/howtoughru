@@ -29,6 +29,24 @@ function Game.pixel_height()
   return Game.board.height * Game.sprite
 end
 
+function Game.diagonal()
+  local w = Game.pixel_width()
+  local h = Game.pixel_height()
+  return math.sqrt(w*w + h*h)
+end
+
+function Game.in_between_width(x)
+  return x > 0 and x < Game.pixel_width()
+end
+
+function Game.in_between_height(y)
+  return y > 0 and y < Game.pixel_height()
+end
+
+function Game.on_screen(x,y)
+  return Game.in_between_width(x) and Game.in_between_height(y)
+end
+
 function Game:get_cell(coordinate)
   return floor(coordinate / self.sprite) + 1
 end

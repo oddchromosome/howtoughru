@@ -1,15 +1,14 @@
 move = require "action/move"
 local color = require "figure/color"
 local point = require "figure/point"
-local moving_line = require "figure/moving_line"
+local polar_line = require "figure/moving_line"
 
 local lg = love.graphics
 local key = love.keyboard.isDown
 
-local moving_line = moving_line.new(point.new(64,48),
-                                    color.white,
-                                    color.red)
-
+local moving_line = polar_line.new(point.new(64,48),
+                                   0,
+                                   color.red)
 local level4 = {}
 
 function level4:step(dt)
