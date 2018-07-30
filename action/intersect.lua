@@ -36,4 +36,11 @@ function intersect.circle_rectangle(a, b, d)
   return false
 end
 
+function intersect.line_ball(line,ball)
+  dx = ball.point.x + ball.dir.x * ball.speed
+  dy = ball.point.y + ball.dir.y * ball.speed
+
+  return line_equation(line, dx) < 0
+end
+
 return intersect

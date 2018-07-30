@@ -32,9 +32,18 @@ line_equation_y = function(point_a,point_b,y)
   end
 end
 
+line_equation = function(line, x)
+  return math.tan(line.angle)*(x - line.point.x) + line.point.y
+end
+
 -- complete line by two dots
 complete_line = function(point_a, angle)
   local dx = game.diagonal() * math.cos(angle)
   local dy = game.diagonal() * math.sin(angle)
   return point_a.x - dx, point_a.y - dy, point_a.x + dx, point_a.y + dy
+end
+
+normalize_pi = function(num)
+  --TODO: normalize_pi
+  return num
 end
